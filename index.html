@@ -67,8 +67,6 @@ section{padding-block:96px;position:relative}
 
 /* Etiquetas y resaltados */
 .kicker{display:inline-flex;align-items:center;gap:8px;font-size:12px;line-height:16px;letter-spacing:0.22em;text-transform:uppercase;font-weight:600;color:var(--gold-2)}
-.kicker::before{content:"";width:24px;height:1px;background:var(--gold)}
-.center .kicker::after{content:"";width:24px;height:1px;background:var(--gold)}
 .pill-outline{display:inline-flex;align-items:center;gap:8px;padding:8px 16px;border:1px solid var(--gold);border-radius:999px;font-size:12px;line-height:16px;letter-spacing:0.24em;text-transform:uppercase;font-weight:600;color:var(--gold-2);background:rgba(255,251,246,0.6)}
 mark{background:rgba(201,160,99,0.26);color:inherit;padding:0 8px;border-radius:8px;-webkit-box-decoration-break:clone;box-decoration-break:clone}
 .h2{font-size:48px;line-height:1.05;letter-spacing:-0.01em}
@@ -84,8 +82,8 @@ mark{background:rgba(201,160,99,0.26);color:inherit;padding:0 8px;border-radius:
 /* Botones */
 .btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;font:600 16px/24px var(--body);padding:16px 32px;border-radius:999px;text-decoration:none;border:1px solid transparent;cursor:pointer;text-align:center;transition:transform .6s var(--ease),box-shadow .6s var(--ease),background-color .6s var(--ease),color .6s var(--ease),filter .6s var(--ease)}
 .btn:active{transform:scale(0.98)}
-.btn-gold{color:#FFF9F1;background:linear-gradient(135deg,#9A7040 0%,#C29A5F 48%,#8C6535 100%);box-shadow:0 12px 24px -12px rgba(140,101,53,0.8),inset 0 1px 0 rgba(255,255,255,0.35);text-shadow:0 1px 1px rgba(46,31,23,0.35)}
-.btn-gold:hover{transform:translateY(-2px);filter:brightness(1.06);box-shadow:0 16px 32px -12px rgba(140,101,53,0.9),inset 0 1px 0 rgba(255,255,255,0.35)}
+.btn-gold{color:#FFF9F1;background:#94693A;box-shadow:0 10px 20px -12px rgba(140,101,53,0.7)}
+.btn-gold:hover{background:#7C5630;transform:translateY(-2px)}
 .btn-dark{background:var(--espresso);color:var(--cream)}
 .btn-dark:hover{background:var(--mocha);transform:translateY(-2px)}
 .btn-line{border-color:var(--espresso);color:var(--espresso);background:transparent}
@@ -189,15 +187,14 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
 @media (max-width:820px){.cal{grid-template-columns:repeat(5,minmax(0,1fr));padding:16px}.cal-intro{grid-column:1/-1;margin-bottom:8px}.day{padding:12px 8px}.day b{font-size:24px;line-height:32px}.day span{font-size:10px;letter-spacing:0.02em}}
 
 /* ¿Te identificas? */
-.pains{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;list-style:none;margin:0;padding:0}
-.pains li{background:var(--card);border-radius:24px;padding:24px;display:grid;gap:12px;align-content:start;border:1px solid var(--line);transition:transform .7s var(--ease),box-shadow .7s var(--ease)}
-.pains li:hover{transform:translateY(-4px);box-shadow:var(--shadow)}
-.pains .n{font-family:var(--display);font-size:30px;line-height:36px;color:var(--rose)}
-@media (max-width:900px){.pains{grid-template-columns:repeat(2,minmax(0,1fr))}}
-@media (max-width:560px){.pains{grid-template-columns:1fr;gap:8px}.pains li{grid-template-columns:40px minmax(0,1fr);align-items:baseline;padding:16px}.pains .n{font-size:24px;line-height:32px}}
-.reassure{margin-top:48px;padding:40px;border-radius:24px;background:var(--blush);display:grid;grid-template-columns:auto minmax(0,1fr);gap:32px;align-items:center}
-.reassure p{font-family:var(--display);font-size:30px;line-height:36px}
-@media (max-width:720px){.reassure{grid-template-columns:1fr;padding:24px;gap:16px}.reassure p{font-size:24px;line-height:32px}}
+.ident{display:grid;grid-template-columns:minmax(0,0.85fr) minmax(0,1.15fr);gap:80px;align-items:start}
+.ident-head{display:grid;gap:16px;position:sticky;top:120px}
+.ident-head p{color:var(--soft);font-size:18px;line-height:28px}
+.ident-head p.turn{color:var(--mocha);font-family:var(--display);font-size:24px;line-height:32px;margin-top:16px}
+.thoughts{list-style:none;margin:0;padding:0;border-top:1px solid var(--espresso)}
+.thoughts li{font-family:var(--display);font-size:30px;line-height:36px;padding-block:24px;border-bottom:1px solid var(--line);text-wrap:balance}
+.thoughts li:nth-child(even){padding-left:48px;color:var(--mocha)}
+@media (max-width:900px){.ident{grid-template-columns:1fr;gap:40px}.ident-head{position:static}.thoughts li{font-size:24px;line-height:32px;padding-block:20px}.thoughts li:nth-child(even){padding-left:24px}}
 
 /* Solución y bloques a dos columnas */
 .duo{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:80px;align-items:center}
@@ -219,7 +216,6 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
 .course{position:relative;display:flex;flex-direction:column;background:var(--card);border-radius:32px;padding:12px;box-shadow:0 1px 0 var(--line),var(--shadow);transition:transform .7s var(--ease)}
 .course:hover{transform:translateY(-6px)}
 .course .photo{border-radius:24px;aspect-ratio:5/4}
-.course .ring{position:absolute;top:24px;left:24px;background:rgba(255,251,246,0.9);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px)}
 .course-body{display:flex;flex-direction:column;gap:12px;padding:24px 16px 16px;flex:1}
 .course h3{font-size:30px;line-height:36px}
 .when{font-size:12px;line-height:16px;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:var(--gold-2)}
@@ -237,9 +233,7 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
 
 /* Combo */
 .combo{background:var(--espresso);color:var(--cream);overflow:hidden;isolation:isolate}
-.combo::before{content:"";position:absolute;inset:-20% -10% auto auto;width:640px;height:640px;border-radius:999px;background:radial-gradient(circle, rgba(194,154,95,0.35) 0%, rgba(194,154,95,0) 65%);z-index:-1}
 .combo .kicker{color:var(--ring)}
-.combo .kicker::before{background:var(--ring)}
 .combo .h2 mark{background:rgba(194,154,95,0.35)}
 .combo-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:64px;align-items:center}
 .combo .lead{color:#D8C7B5;margin-top:24px;max-width:460px;font-size:18px;line-height:28px}
@@ -265,51 +259,44 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
 @media (max-width:480px){.ticket{padding:32px 20px}.t-total .big{font-size:48px}}
 
 /* Qué incluye */
-.incl{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px}
-.incl-col{background:var(--card);border-radius:24px;padding:24px;display:flex;flex-direction:column;gap:16px;border:1px solid var(--line)}
-.incl-col header{display:flex;align-items:center;gap:12px;padding-bottom:16px;border-bottom:1px solid var(--line)}
+.incl{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:40px 32px}
+.incl-col{display:flex;flex-direction:column;gap:16px;padding-top:16px;border-top:1px solid var(--espresso)}
+.incl-col header{padding-bottom:4px}
 .incl-col h3{font-family:var(--body);font-size:12px;line-height:16px;letter-spacing:0.18em;text-transform:uppercase;font-weight:700;color:var(--gold-2)}
 .item h4{margin:0 0 4px;font-size:16px;line-height:24px;font-weight:700}
 .item p{font-size:14px;line-height:20px;color:var(--soft)}
-.incl-col.accent{background:var(--blush);border-color:var(--blush)}
-.incl-col.accent .ring{background:transparent;border-color:rgba(140,101,53,0.35)}
-.incl-col.accent header{border-color:rgba(140,101,53,0.2)}
+.incl-col.accent .big6{margin-block:-8px -8px}
 .big6{font-family:var(--display);font-size:96px;line-height:1;color:var(--rose)}
 @media (max-width:1000px){.incl{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media (max-width:560px){.incl{grid-template-columns:1fr}}
 
 /* Cinco alumnas */
 .five-band{background:var(--champagne)}
-.seats{display:flex;gap:8px;margin-bottom:8px}
-.seats .ring{width:44px;height:44px}
-.seats .i{width:20px;height:20px}
+.big5{font-family:var(--display);font-size:128px;line-height:0.9;color:var(--rose)}
 .pair{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:16px}
 .pair .photo{aspect-ratio:3/4;border-radius:999px 999px 16px 16px;box-shadow:var(--shadow)}
 .pair .photo:last-child{margin-top:64px}
 
 /* Frase revelada */
-.reveal-line{padding-block:120px;text-align:center}
-.reveal-line .ring{margin-bottom:32px}
+.reveal-line{padding-block:120px;text-align:center;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.reveal-line em{font-style:normal;color:var(--rose)}
 .reveal-line p{font-family:var(--display);font-size:60px;line-height:1.08;max-width:920px;margin:0 auto;text-wrap:balance}
-.reveal-line .w{color:rgba(46,31,23,0.22);transition:color .9s var(--ease)}
-.reveal-line .w.on{color:var(--espresso)}
-.reveal-line .w.accent.on{color:var(--rose)}
 @media (max-width:720px){.reveal-line{padding-block:80px}.reveal-line p{font-size:36px;line-height:40px}}
 
 /* Diferencial */
-.pillars{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
-.pillar{padding:40px 32px;border-radius:999px 999px 24px 24px;background:var(--card);display:flex;flex-direction:column;align-items:center;text-align:center;gap:12px;border:1px solid var(--line)}
-.pillar .ring{margin-bottom:8px}
+.pillars{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));border-top:1px solid var(--espresso);border-bottom:1px solid var(--line)}
+.pillar{padding:32px 32px 40px 0;display:grid;gap:8px;align-content:start}
+.pillar + .pillar{padding-left:32px;border-left:1px solid var(--line)}
+.pillar small{font-size:12px;line-height:16px;letter-spacing:0.18em;text-transform:uppercase;font-weight:600;color:var(--gold-2)}
 .pillar h3{font-size:30px;line-height:36px}
 .pillar p{color:var(--soft)}
-@media (max-width:900px){.pillars{grid-template-columns:1fr;max-width:420px;margin-inline:auto}.pillar{border-radius:24px;padding:32px 24px}}
+@media (max-width:900px){.pillars{grid-template-columns:1fr}.pillar,.pillar + .pillar{padding:24px 0;border-left:0}.pillar + .pillar{border-top:1px solid var(--line)}}
 
 /* Para quién */
 .who{display:grid;grid-template-columns:minmax(0,0.9fr) minmax(0,1.1fr);gap:64px;align-items:start}
-.checks{list-style:none;margin:0;padding:0;display:grid;gap:8px}
-.checks li{display:grid;grid-template-columns:32px minmax(0,1fr);gap:12px;align-items:center;padding:12px 16px;border-radius:16px;background:var(--card)}
-.checks .ring{width:32px;height:32px;background:transparent}
-.checks .ring .i{width:16px;height:16px;stroke-width:1.5}
+.checks{list-style:none;margin:0;padding:0;border-top:1px solid var(--espresso)}
+.checks li{display:grid;grid-template-columns:24px minmax(0,1fr);gap:16px;align-items:baseline;padding-block:16px;border-bottom:1px solid var(--line);font-size:18px;line-height:28px}
+.checks .i{color:var(--gold-2);width:18px;height:18px;stroke-width:1.5;transform:translateY(3px)}
 .note{margin-top:24px;padding:24px;border:1px solid var(--gold);border-radius:24px;background:rgba(201,160,99,0.08)}
 .note strong{display:block;margin-bottom:4px;color:var(--gold-2);font-size:12px;line-height:16px;letter-spacing:0.18em;text-transform:uppercase}
 @media (max-width:900px){.who{grid-template-columns:1fr;gap:32px}}
@@ -324,7 +311,6 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
 .letter .q{font-family:var(--display);font-size:30px;line-height:36px;color:var(--mocha)!important}
 .letter p{color:var(--soft)}
 .sign{display:flex;align-items:center;gap:12px;margin-top:8px}
-.sign .ring{background:transparent;border-color:rgba(140,101,53,0.35)}
 .sign b{font-family:var(--display);font-weight:400;font-size:24px;line-height:32px}
 .sign span{font-size:14px;line-height:20px;color:var(--soft);display:block}
 @media (max-width:900px){.car-grid{grid-template-columns:1fr;gap:56px}.car-photo{max-width:420px}.car-photo .name{font-size:48px}}
@@ -368,7 +354,6 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
 
 /* Cierre */
 .closing{background:var(--champagne);overflow:hidden;isolation:isolate}
-.closing::before{content:"";position:absolute;left:-10%;top:-10%;width:720px;height:720px;border-radius:999px;background:radial-gradient(circle, rgba(255,247,232,0.95) 0%, rgba(255,247,232,0) 65%);z-index:-1}
 .close-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:64px;align-items:start}
 .recap{list-style:none;margin:32px 0 0;padding:0;display:grid;gap:8px}
 .recap li{display:grid;grid-template-columns:96px minmax(0,1fr) auto;gap:16px;align-items:center;padding:12px 16px;border-radius:16px;background:rgba(255,251,246,0.7);font-size:14px;line-height:20px}
@@ -418,12 +403,12 @@ footer{padding-block:48px 120px;background:var(--espresso);color:#D8C7B5}
 @media (max-width:920px){.dock{display:flex}}
 
 /* Aparición al hacer scroll: visible por defecto; solo se oculta lo que aún no ha entrado */
-.rv{transition:opacity .9s var(--ease),transform .9s var(--ease),filter .9s var(--ease)}
-.rv.pending{opacity:0;transform:translateY(64px);filter:blur(12px)}
+.rv{transition:opacity .8s var(--ease),transform .8s var(--ease)}
+.rv.pending{opacity:0;transform:translateY(24px)}
 @media (prefers-reduced-motion:reduce){
   html{scroll-behavior:auto}
   *,*::before,*::after{transition-duration:0s!important}
-  .rv.pending{opacity:1;transform:none;filter:none}
+  .rv.pending{opacity:1;transform:none}
 }
 </style>
 </head>
@@ -435,7 +420,6 @@ footer{padding-block:48px 120px;background:var(--espresso);color:#D8C7B5}
   <symbol id="i-brow" viewBox="0 0 24 24"><path d="M3 10.5c3.2-3.2 8.6-4.3 14.4-2.5 1.3.4 2.5 1 3.6 1.7"/><path d="M5.5 15.2c3.6 2.4 9.4 2.4 13 0"/><path d="M8.2 16.9l-.7 1.5M12 17.7v1.6M15.8 16.9l.7 1.5"/></symbol>
   <symbol id="i-lips" viewBox="0 0 24 24"><path d="M2.5 12c2.3-2.8 4.8-4.4 6.8-4.4 1.2 0 1.9.6 2.7 1.3.8-.7 1.5-1.3 2.7-1.3 2 0 4.5 1.6 6.8 4.4-2.7 3.4-5.8 5-9.5 5s-6.8-1.6-9.5-5Z"/><path d="M2.5 12c3.2.9 6.4 1.3 9.5 1.3s6.3-.4 9.5-1.3"/></symbol>
   <symbol id="i-lash" viewBox="0 0 24 24"><path d="M3 13c2.6-3.2 5.6-4.8 9-4.8s6.4 1.6 9 4.8"/><path d="M12 8.2V5M7.6 9.3 6.3 6.6M16.4 9.3l1.3-2.7M4.6 11.2 2.9 9.5M19.4 11.2l1.7-1.7"/><path d="M6.5 15.5c3.3 2 7.7 2 11 0"/></symbol>
-  <symbol id="i-person" viewBox="0 0 24 24"><circle cx="12" cy="8.5" r="3.6"/><path d="M5 20c1.1-3.6 3.8-5.6 7-5.6s5.9 2 7 5.6"/></symbol>
   <symbol id="i-users" viewBox="0 0 24 24"><circle cx="9" cy="8.5" r="3.2"/><path d="M3.5 19c.9-3.3 3-5 5.5-5s4.6 1.7 5.5 5"/><circle cx="16.6" cy="9.4" r="2.4"/><path d="M16 14.2c2.3 0 4 1.6 4.6 4.6"/></symbol>
   <symbol id="i-pen" viewBox="0 0 24 24"><path d="M15 4.5l4.5 4.5-9.8 9.8H5.2v-4.5L15 4.5Z"/><path d="M12.8 6.7l4.5 4.5M5.2 18.8 3.5 20.5"/></symbol>
   <symbol id="i-box" viewBox="0 0 24 24"><path d="M12 3.2l8 4.4v8.8l-8 4.4-8-4.4V7.6l8-4.4Z"/><path d="M4 7.6l8 4.4 8-4.4M12 12v8.8"/></symbol>
@@ -443,8 +427,6 @@ footer{padding-block:48px 120px;background:var(--espresso);color:#D8C7B5}
   <symbol id="i-camera" viewBox="0 0 24 24"><rect x="3" y="7" width="18" height="13" rx="2.5"/><circle cx="12" cy="13.5" r="3.4"/><path d="M8.6 7l1.4-2.6h4L15.4 7"/></symbol>
   <symbol id="i-trend" viewBox="0 0 24 24"><path d="M3.5 17l5.5-5.5 4 3.5 7.5-7.5"/><path d="M15 7.5h5.5V13"/></symbol>
   <symbol id="i-chat" viewBox="0 0 24 24"><path d="M20.5 11.8a8.5 8.5 0 0 1-12.6 7.4L3.5 20.5l1.3-4.2a8.5 8.5 0 1 1 15.7-4.5Z"/></symbol>
-  <symbol id="i-question" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.8"/><path d="M9.7 9.6a2.4 2.4 0 1 1 3.3 2.2c-.6.3-1 .8-1 1.4v.6"/><path d="M12 16.8v.1"/></symbol>
-  <symbol id="i-spark" viewBox="0 0 24 24"><path d="M12 3c.6 4.6 2.4 6.4 7 7-4.6.6-6.4 2.4-7 7-.6-4.6-2.4-6.4-7-7 4.6-.6 6.4-2.4 7-7Z"/><path d="M19 15.5c.2 1.6.9 2.3 2.5 2.5-1.6.2-2.3.9-2.5 2.5-.2-1.6-.9-2.3-2.5-2.5 1.6-.2 2.3-.9 2.5-2.5Z"/></symbol>
   <symbol id="i-check" viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></symbol>
   <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M4 12h16M14 6l6 6-6 6"/></symbol>
   <symbol id="i-lr" viewBox="0 0 24 24"><path d="M9 7l-5 5 5 5M15 7l5 5-5 5"/></symbol>
@@ -526,24 +508,21 @@ footer{padding-block:48px 120px;background:var(--espresso);color:#D8C7B5}
 
 <!-- 2. ¿TE IDENTIFICAS? -->
 <section id="identificas">
-  <div class="wrap">
-    <div class="head center rv">
+  <div class="wrap ident">
+    <div class="ident-head rv">
       <span class="kicker">¿Te identificas?</span>
-      <h2 class="h2">Sabes hacer micropigmentación y sabes que puedes hacerlo <mark>mucho mejor</mark>.</h2>
-      <p>Tienes tus máquinas, tus pigmentos y tus clientas. Hay trabajos de los que te sientes orgullosa. Y aun así, algo te inquieta.</p>
+      <h2 class="h2">Sabes hacer micropigmentación y sabes que puedes hacerlo mucho mejor.</h2>
+      <p>Tienes tus máquinas, tus pigmentos y tus clientas. Hay trabajos de los que te sientes orgullosa. Y aun así, algunas ideas te dan vueltas.</p>
+      <p class="turn">Nada de eso te hace mala artista. Te falta alguien que mire tu trabajo contigo y te muestre qué corregir.</p>
     </div>
-    <ul class="pains">
-      <li class="rv"><span class="n">i.</span><span>Tus trazos no siempre salen tan finos ni tan definidos como quisieras.</span></li>
-      <li class="rv"><span class="n">ii.</span><span>Un procedimiento te queda increíble y el siguiente no.</span></li>
-      <li class="rv"><span class="n">iii.</span><span>Miras el trabajo de otras colegas y te preguntas qué hacen distinto.</span></li>
-      <li class="rv"><span class="n">iv.</span><span>Sabes que algo falla en tu técnica y no logras ubicar qué.</span></li>
-      <li class="rv"><span class="n">v.</span><span>Quieres subir tus precios, pero te frena la inseguridad con tus resultados.</span></li>
-      <li class="rv"><span class="n">vi.</span><span>Llevas meses, o años, trabajando en el mismo nivel.</span></li>
+    <ul class="thoughts rv">
+      <li>“Mis trazos no siempre quedan tan finos ni tan definidos.”</li>
+      <li>“Una clienta me queda increíble y la siguiente no.”</li>
+      <li>“Veo el trabajo de otras colegas y no sé qué hacen distinto.”</li>
+      <li>“Sé que algo falla en mi técnica, pero no logro ubicarlo.”</li>
+      <li>“Quiero cobrar más, pero no me siento segura de mis resultados.”</li>
+      <li>“Llevo años en el mismo nivel.”</li>
     </ul>
-    <div class="reassure rv">
-      <span class="ring lg"><svg class="i" aria-hidden="true"><use href="#i-brow"/></svg></span>
-      <p>Eso no te hace mala artista. Te falta alguien que mire tu trabajo contigo y te muestre qué corregir.</p>
-    </div>
   </div>
 </section>
 
@@ -552,7 +531,6 @@ footer{padding-block:48px 120px;background:var(--espresso);color:#D8C7B5}
   <div class="wrap duo">
     <div class="framed rv">
       <div class="photo"><img src="assets/img/espejo.jpg" alt="Clienta mirando su resultado en el espejo de la cabina" width="800" height="1051" loading="lazy"></div>
-      <div class="float-badge"><b class="num">5</b><span>alumnas como máximo en cada capacitación</span></div>
     </div>
     <div class="copy rv">
       <span class="kicker">La masterclass</span>
@@ -570,12 +548,11 @@ footer{padding-block:48px 120px;background:var(--espresso);color:#D8C7B5}
   <div class="wrap">
     <div class="head center rv">
       <span class="kicker">Las tres capacitaciones</span>
-      <h2 class="h2">Elige la especialidad que quieres <mark>llevar más lejos</mark>.</h2>
+      <h2 class="h2">Elige la especialidad que quieres llevar más lejos.</h2>
     </div>
     <div class="courses">
       <article class="course rv">
         <div class="photo"><img src="assets/img/cejas-4-despues.jpg" alt="Cejas hiperrealistas terminadas" width="1200" height="600" loading="lazy"></div>
-        <span class="ring"><svg class="i" aria-hidden="true"><use href="#i-brow"/></svg></span>
         <div class="course-body">
           <p class="when num">26 y 27 nov · 2 días</p>
           <h3>Cejas hiperrealistas</h3>
@@ -586,7 +563,6 @@ footer{padding-block:48px 120px;background:var(--espresso);color:#D8C7B5}
       </article>
       <article class="course featured rv">
         <div class="photo"><img src="assets/img/trazado.jpg" alt="Diseño previo de labios y cejas sobre una modelo" width="720" height="300" loading="lazy"></div>
-        <span class="ring"><svg class="i" aria-hidden="true"><use href="#i-lips"/></svg></span>
         <div class="course-body">
           <p class="when num">28 y 29 nov · 2 días</p>
           <h3>Micropigmentación de labios</h3>
@@ -597,7 +573,6 @@ footer{padding-block:48px 120px;background:var(--espresso);color:#D8C7B5}
       </article>
       <article class="course rv">
         <div class="photo"><img src="assets/img/reaccion-2.jpg" alt="Clienta sonriendo después de su procedimiento de cejas y pestañas" width="720" height="940" loading="lazy" style="object-position:center 35%"></div>
-        <span class="ring"><svg class="i" aria-hidden="true"><use href="#i-lash"/></svg></span>
         <div class="course-body">
           <p class="when num">30 nov · 1 día</p>
           <h3>Brow &amp; Lash Repair</h3>
@@ -641,30 +616,30 @@ footer{padding-block:48px 120px;background:var(--espresso);color:#D8C7B5}
   <div class="wrap">
     <div class="head center rv">
       <span class="kicker">Qué incluye</span>
-      <h2 class="h2">Técnica, materiales, negocio y <mark>seis meses</mark> de acompañamiento.</h2>
+      <h2 class="h2">Técnica, materiales, negocio y seis meses de acompañamiento.</h2>
     </div>
     <div class="incl">
       <div class="incl-col rv">
-        <header><span class="ring"><svg class="i" aria-hidden="true"><use href="#i-pen"/></svg></span><h3>En el aula</h3></header>
+        <header><h3>En el aula</h3></header>
         <div class="item"><h4>Formación semipersonalizada</h4><p>Cinco alumnas como máximo, con tiempo para resolver tus dudas.</p></div>
         <div class="item"><h4>Demostración en vivo</h4><p>Ves el procedimiento completo y entiendes cada decisión técnica.</p></div>
         <div class="item"><h4>Prácticas en plantilla</h4><p>Afinas los detalles antes de pasar a la modelo.</p></div>
         <div class="item"><h4>Práctica en modelo real</h4><p>Haces el procedimiento con orientación durante todo el proceso.</p></div>
       </div>
       <div class="incl-col rv">
-        <header><span class="ring"><svg class="i" aria-hidden="true"><use href="#i-box"/></svg></span><h3>Materiales</h3></header>
+        <header><h3>Materiales</h3></header>
         <div class="item"><h4>Materiales para las prácticas</h4><p>Los que necesitas para las prácticas del curso.</p></div>
         <div class="item"><h4>Guía de proveedores</h4><p>Dónde comprar los insumos para tu trabajo.</p></div>
         <div class="item"><h4>Asesoría en insumos</h4><p>Orientación para elegir tus materiales sin gastar de más.</p></div>
       </div>
       <div class="incl-col rv">
-        <header><span class="ring"><svg class="i" aria-hidden="true"><use href="#i-trend"/></svg></span><h3>Tu negocio</h3></header>
+        <header><h3>Tu negocio</h3></header>
         <div class="item"><h4>Marketing para artistas de belleza</h4><p>Presenta tus servicios y comunica el valor de tu trabajo.</p></div>
         <div class="item"><h4>Fotografía y contenido</h4><p>Fotografía tus procedimientos y edita videos que muestren tu trabajo.</p></div>
         <div class="item"><h4>Estrategias de venta</h4><p>Conecta con tus clientas y presenta tus tratamientos con seguridad.</p></div>
       </div>
       <div class="incl-col accent rv">
-        <header><span class="ring"><svg class="i" aria-hidden="true"><use href="#i-chat"/></svg></span><h3>Después del curso</h3></header>
+        <header><h3>Después del curso</h3></header>
         <span class="big6 num">6</span>
         <div class="item"><h4>Meses de acompañamiento</h4><p>Sigues consultando a Carolina después de salir del aula, mientras aplicas lo aprendido con tus clientas.</p></div>
       </div>
@@ -676,11 +651,9 @@ footer{padding-block:48px 120px;background:var(--espresso);color:#D8C7B5}
 <section class="five-band">
   <div class="wrap duo">
     <div class="copy rv">
-      <div class="seats" aria-hidden="true">
-        <span class="ring"><svg class="i"><use href="#i-person"/></svg></span><span class="ring"><svg class="i"><use href="#i-person"/></svg></span><span class="ring"><svg class="i"><use href="#i-person"/></svg></span><span class="ring"><svg class="i"><use href="#i-person"/></svg></span><span class="ring"><svg class="i"><use href="#i-person"/></svg></span>
-      </div>
+      <span class="big5 num" aria-hidden="true">5</span>
       <span class="kicker">¿Por qué semipersonalizada?</span>
-      <h2 class="h2">En un grupo de cinco alcanzas a <mark>preguntar todo</mark>.</h2>
+      <h2 class="h2">En un grupo de cinco alcanzas a preguntar todo.</h2>
       <p class="lead">En los cursos masivos miras desde lejos, practicas poco y te vas a casa con dudas.</p>
       <p>Por eso esta edición recibe máximo cinco alumnas por curso. Ves de cerca, practicas y recibes correcciones mientras trabajas. Te llevas conocimientos que aplicas desde tu siguiente clienta.</p>
     </div>
@@ -694,23 +667,22 @@ footer{padding-block:48px 120px;background:var(--espresso);color:#D8C7B5}
 <!-- Frase central -->
 <div class="reveal-line">
   <div class="wrap">
-    <span class="ring lg"><svg class="i" aria-hidden="true"><use href="#i-spark"/></svg></span>
-    <p id="tagline">Tu técnica ya tiene una base. Ahora vamos a llevarla al nivel que siempre has querido.</p>
+    <p class="rv">Tu técnica ya tiene una base. Ahora vamos a llevarla al <em>nivel que siempre has querido.</em></p>
   </div>
 </div>
 
 <!-- 8. DIFERENCIAL -->
-<section style="padding-top:0">
+<section>
   <div class="wrap">
-    <div class="head center rv">
+    <div class="head rv">
       <span class="kicker">El diferencial Fun2Lash</span>
-      <h2 class="h2">Técnica, imagen y <mark>negocio</mark>.</h2>
-      <p>Un buen procedimiento te trae una clienta. Saber fotografiarlo y venderlo te trae las siguientes.</p>
+      <h2 class="h2">Técnica, imagen y negocio.</h2>
+      <p>Además de perfeccionar tu técnica, aprendes a fotografiar tus trabajos y a venderlos.</p>
     </div>
-    <div class="pillars">
-      <div class="pillar rv"><span class="ring lg"><svg class="i" aria-hidden="true"><use href="#i-pen"/></svg></span><h3>Técnica</h3><p>Perfeccionamiento, demostraciones y práctica presencial.</p></div>
-      <div class="pillar rv"><span class="ring lg"><svg class="i" aria-hidden="true"><use href="#i-camera"/></svg></span><h3>Imagen profesional</h3><p>Fotografía, edición de video y presentación de tus resultados.</p></div>
-      <div class="pillar rv"><span class="ring lg"><svg class="i" aria-hidden="true"><use href="#i-trend"/></svg></span><h3>Negocio</h3><p>Marketing, comunicación y estrategias para vender tus tratamientos.</p></div>
+    <div class="pillars rv">
+      <div class="pillar"><small>En la camilla</small><h3>Técnica</h3><p class="soft">Perfeccionamiento, demostraciones y práctica presencial.</p></div>
+      <div class="pillar"><small>En tus redes</small><h3>Imagen profesional</h3><p class="soft">Fotografía, edición de video y presentación de tus resultados.</p></div>
+      <div class="pillar"><small>En tu agenda</small><h3>Negocio</h3><p class="soft">Marketing, comunicación y estrategias para vender tus tratamientos.</p></div>
     </div>
   </div>
 </section>
@@ -720,17 +692,17 @@ footer{padding-block:48px 120px;background:var(--espresso);color:#D8C7B5}
   <div class="wrap who">
     <div class="rv" style="display:grid;gap:16px">
       <span class="kicker">¿Para quién es?</span>
-      <h2 class="h2">Esta masterclass es <mark>para ti</mark> si…</h2>
+      <h2 class="h2">Esta masterclass es para ti si…</h2>
       <div class="note"><strong>Importante</strong><span class="soft">Esta edición es para artistas que ya hacen estos procedimientos y quieren perfeccionarse. No es una formación básica desde cero.</span></div>
     </div>
     <ul class="checks rv">
-      <li><span class="ring"><svg class="i" aria-hidden="true"><use href="#i-check"/></svg></span><span>Ya haces micropigmentación y quieres mejores resultados.</span></li>
-      <li><span class="ring"><svg class="i" aria-hidden="true"><use href="#i-check"/></svg></span><span>Sientes que tu técnica puede mejorar y necesitas que alguien te muestre cómo.</span></li>
-      <li><span class="ring"><svg class="i" aria-hidden="true"><use href="#i-check"/></svg></span><span>Buscas cejas y labios con un acabado más natural.</span></li>
-      <li><span class="ring"><svg class="i" aria-hidden="true"><use href="#i-check"/></svg></span><span>Aprendes mejor practicando en persona que viendo videos.</span></li>
-      <li><span class="ring"><svg class="i" aria-hidden="true"><use href="#i-check"/></svg></span><span>Quieres que tus fotos y videos muestren la calidad de tu trabajo.</span></li>
-      <li><span class="ring"><svg class="i" aria-hidden="true"><use href="#i-check"/></svg></span><span>Quieres vender tus servicios con más seguridad.</span></li>
-      <li><span class="ring"><svg class="i" aria-hidden="true"><use href="#i-check"/></svg></span><span>Estás lista para invertir en tu crecimiento profesional.</span></li>
+      <li><svg class="i" aria-hidden="true"><use href="#i-check"/></svg><span>Ya haces micropigmentación y quieres mejores resultados.</span></li>
+      <li><svg class="i" aria-hidden="true"><use href="#i-check"/></svg><span>Sientes que tu técnica puede mejorar y necesitas que alguien te muestre cómo.</span></li>
+      <li><svg class="i" aria-hidden="true"><use href="#i-check"/></svg><span>Buscas cejas y labios con un acabado más natural.</span></li>
+      <li><svg class="i" aria-hidden="true"><use href="#i-check"/></svg><span>Aprendes mejor practicando en persona que viendo videos.</span></li>
+      <li><svg class="i" aria-hidden="true"><use href="#i-check"/></svg><span>Quieres que tus fotos y videos muestren la calidad de tu trabajo.</span></li>
+      <li><svg class="i" aria-hidden="true"><use href="#i-check"/></svg><span>Quieres vender tus servicios con más seguridad.</span></li>
+      <li><svg class="i" aria-hidden="true"><use href="#i-check"/></svg><span>Estás lista para invertir en tu crecimiento profesional.</span></li>
     </ul>
   </div>
 </section>
@@ -745,12 +717,11 @@ footer{padding-block:48px 120px;background:var(--espresso);color:#D8C7B5}
     </div>
     <div class="letter rv">
       <span class="kicker">Quién te va a formar</span>
-      <h2 class="h2">Aprende con una artista que sigue <mark>puliendo cada detalle</mark>.</h2>
+      <h2 class="h2">Aprende con una artista que sigue puliendo cada detalle.</h2>
       <p class="q">“Me apasionan los detalles que cambian un resultado.”</p>
       <p>Perfeccionar la técnica y lograr que cada trabajo tenga identidad propia es lo que más disfruto de la micropigmentación.</p>
       <p>Creé esta formación para artistas que ya están en el gremio y quieren dar el siguiente paso. Te voy a compartir lo que he aprendido en cabina para que construyas tu propio criterio.</p>
       <p>Si tienes el talento y las ganas, quiero acompañarte.</p>
-      <div class="sign"><span class="ring"><svg class="i" aria-hidden="true"><use href="#i-spark"/></svg></span><div><b>Carolina</b><span>Fun2Lash</span></div></div>
       <!-- Añadir aquí trayectoria confirmada: años de experiencia, certificaciones, especialidades -->
     </div>
   </div>
@@ -761,7 +732,7 @@ footer{padding-block:48px 120px;background:var(--espresso);color:#D8C7B5}
   <div class="wrap">
     <div class="head center rv">
       <span class="kicker">Resultados reales</span>
-      <h2 class="h2">Así trabajamos en <mark>nuestra cabina</mark>.</h2>
+      <h2 class="h2">Así trabajamos en nuestra cabina.</h2>
       <p>Fotos sin filtro. Desliza para comparar el antes y el después.</p>
     </div>
     <div class="gallery rv">
@@ -795,7 +766,6 @@ footer{padding-block:48px 120px;background:var(--espresso);color:#D8C7B5}
 <section id="preguntas" style="padding-top:0">
   <div class="wrap faq-grid">
     <div class="faq-side rv">
-      <span class="ring lg"><svg class="i" aria-hidden="true"><use href="#i-question"/></svg></span>
       <span class="kicker">Preguntas frecuentes</span>
       <h2 class="h2">Antes de reservar.</h2>
       <p class="soft">¿Tienes otra duda? Escríbenos y te respondemos en persona.</p>
@@ -820,7 +790,7 @@ footer{padding-block:48px 120px;background:var(--espresso);color:#D8C7B5}
   <div class="wrap close-grid">
     <div class="rv">
       <span class="kicker">Última edición de 2026</span>
-      <h2 class="h2" style="margin-top:16px">Aparta tu cupo para <mark>noviembre</mark>.</h2>
+      <h2 class="h2" style="margin-top:16px">Aparta tu cupo para noviembre.</h2>
       <div style="display:grid;gap:16px;margin-top:24px">
         <p style="font-size:18px;line-height:28px">Si llevas tiempo sintiendo que puedes hacer mejores cejas o mejores labios, esta es tu fecha. Deja de compararte con otras artistas y dedica estos días a corregir lo que hoy te frena.</p>
         <p class="soft">No esperes a sentirte perfecta para seguir creciendo.</p>
@@ -964,15 +934,7 @@ footer{padding-block:48px 120px;background:var(--espresso);color:#D8C7B5}
     });
   });
 
-  // Frase central: envolver cada palabra
-  var t = document.getElementById('tagline');
-  var accent = ['nivel','siempre','has','querido.'];
-  t.innerHTML = t.textContent.split(' ').map(function(w){
-    return '<span class="w' + (accent.indexOf(w) > -1 ? ' accent' : '') + '">' + w + '</span>';
-  }).join(' ');
-  var words = t.querySelectorAll('.w');
-
-  if(!('IntersectionObserver' in window)){ words.forEach(function(w){ w.classList.add('on'); }); return; }
+  if(!('IntersectionObserver' in window)) return;
 
   // Barra fija en móvil: aparece al pasar el hero y se oculta en la reserva
   var dock = document.getElementById('dock'), heroOut = false, formIn = false;
@@ -991,7 +953,7 @@ footer{padding-block:48px 120px;background:var(--espresso);color:#D8C7B5}
   ['capacitaciones','combo','incluye','carolina','preguntas'].forEach(function(id){ navIo.observe(document.getElementById(id)); });
 
   var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  if(reduce){ words.forEach(function(w){ w.classList.add('on'); }); return; }
+  if(reduce) return;
 
   // Aparición suave solo para lo que todavía no está en pantalla
   var io = new IntersectionObserver(function(es){
@@ -1001,22 +963,6 @@ footer{padding-block:48px 120px;background:var(--espresso);color:#D8C7B5}
     if(el.getBoundingClientRect().top > window.innerHeight){ el.classList.add('pending'); io.observe(el); }
   });
 
-  // Cada palabra se enciende en orden de lectura según avanza el scroll
-  var ticking = false, active = false;
-  function paint(){
-    ticking = false;
-    var r = t.getBoundingClientRect(), vh = window.innerHeight;
-    var p = (vh * 0.85 - r.top) / (vh * 0.45 + r.height * 0.5);
-    var lit = Math.round(Math.max(0, Math.min(1, p)) * words.length);
-    words.forEach(function(w, i){ w.classList.toggle('on', i < lit); });
-  }
-  function onScroll(){ if(!ticking){ ticking = true; requestAnimationFrame(paint); } }
-  new IntersectionObserver(function(es){
-    var now = es[0].isIntersecting;
-    if(now && !active) window.addEventListener('scroll', onScroll, {passive:true});
-    if(!now && active) window.removeEventListener('scroll', onScroll);
-    active = now; paint();
-  }).observe(t);
 })();
 </script>
 </body>
