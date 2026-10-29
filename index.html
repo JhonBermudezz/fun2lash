@@ -12,7 +12,7 @@
 <meta property="og:image" content="assets/img/carolina-retrato.jpg">
 <meta property="og:type" content="website">
 <meta name="theme-color" content="#F6EEE5">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ccircle cx='32' cy='32' r='30' fill='%23FBF6F0' stroke='%23B08850' stroke-width='2'/%3E%3Cpath d='M15 35c8-9 21-12 34-6' fill='none' stroke='%232E1F17' stroke-width='3' stroke-linecap='round'/%3E%3C/svg%3E">
+<link rel="icon" type="image/png" href="assets/img/favicon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Gloock&family=Jost:wght@400;500;600;700&display=swap">
@@ -29,6 +29,7 @@
   --mocha:#5B3B2B;      /* segunda tinta del título */
   --rose:#B9787A;       /* primera tinta del título */
   --soft:#6E5A4D;       /* texto secundario */
+  --brand:#CB1875;      /* magenta del logo, solo en el logo y el "&" del hero */
   --gold:#B08850;       /* dorado */
   --gold-2:#8C6535;     /* dorado profundo */
   --ring:#C9B497;       /* aro fino */
@@ -96,8 +97,14 @@ mark{background:rgba(201,160,99,0.26);color:inherit;padding:0 8px;border-radius:
 .nav{position:sticky;top:env(safe-area-inset-top, 0px);z-index:50;padding-top:16px;height:0;pointer-events:none}
 body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top, 0px);z-index:60;background:var(--cream)}
 .nav-pill{pointer-events:auto;margin:0 auto;width:max-content;max-width:calc(100% - 32px);display:flex;align-items:center;gap:24px;padding:8px 8px 8px 24px;border-radius:999px;background:rgba(255,251,246,0.72);backdrop-filter:blur(20px) saturate(1.2);-webkit-backdrop-filter:blur(20px) saturate(1.2);border:1px solid rgba(176,136,80,0.3);box-shadow:0 12px 32px -16px rgba(46,31,23,0.25)}
-.wordmark{font-family:var(--display);font-size:20px;line-height:28px;letter-spacing:0.16em;text-decoration:none;white-space:nowrap;font-weight:400}
-.wordmark b{font-weight:400;color:var(--gold-2)}
+/* Logo: se usa siempre completo, sin deformar, con aire alrededor */
+.logo{display:block;flex:none;line-height:0}
+.logo img{height:52px;width:auto}
+.nav .logo{margin-block:-8px}
+.foot .logo img{height:72px}
+.form .logo img{height:56px}
+.sign-logo{margin-top:16px}
+.sign-logo img{height:80px;width:auto}
 .nav-links{display:flex;gap:24px;list-style:none;margin:0;padding:0}
 .nav-links a{font-size:14px;line-height:20px;font-weight:500;text-decoration:none;color:var(--soft);transition:color .6s var(--ease)}
 .nav-links a:hover,.nav-links a.is-current{color:var(--espresso)}
@@ -138,7 +145,7 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
 .hero-title .big{display:block;font-family:var(--display);font-weight:400;text-transform:uppercase;letter-spacing:0;font-size:128px;line-height:0.92}
 .hero-title .rose{color:var(--rose);text-shadow:0 2px 24px rgba(246,238,229,0.9)}
 .hero-title .mocha{color:var(--mocha)}
-.hero-title .amp{font-size:72px;vertical-align:0.35em;color:var(--gold)}
+.hero-title .amp{font-size:72px;vertical-align:0.35em;color:var(--brand)}
 .hero-plus{font-size:14px;line-height:20px;letter-spacing:0.24em;text-transform:uppercase;font-weight:600;color:var(--mocha);margin-top:8px}
 .dates{display:flex;flex-wrap:wrap;justify-content:center;align-items:center;gap:12px 16px;margin-top:32px}
 .dates strong{font-size:30px;line-height:36px;font-weight:700;color:var(--mocha);letter-spacing:-0.01em}
@@ -393,7 +400,6 @@ fieldset{border:0;margin:0;padding:0;min-width:0}
 /* Pie */
 footer{padding-block:48px 120px;background:var(--espresso);color:#D8C7B5}
 .foot{display:flex;justify-content:space-between;gap:24px;flex-wrap:wrap;align-items:center;font-size:14px;line-height:20px}
-.foot .wordmark{color:var(--cream)}
 .foot a{text-decoration:none}
 .foot a:hover{color:var(--cream);text-decoration:underline}
 .foot nav{display:flex;gap:24px;flex-wrap:wrap}
@@ -437,7 +443,7 @@ footer{padding-block:48px 120px;background:var(--espresso);color:#D8C7B5}
 
 <header class="nav" id="top">
   <div class="nav-pill">
-    <a class="wordmark" href="#top" aria-label="Fun2Lash, volver al inicio">FUN<b>2</b>LASH</a>
+    <a class="logo" href="#top"><img src="assets/img/logo-fun2lash.png" alt="Fun2Lash, volver al inicio" width="640" height="270"></a>
     <ul class="nav-links">
       <li><a href="#capacitaciones">Capacitaciones</a></li>
       <li><a href="#combo">Combo</a></li>
@@ -726,6 +732,7 @@ footer{padding-block:48px 120px;background:var(--espresso);color:#D8C7B5}
       <p>Si tienes el talento y las ganas, quiero acompañarte.</p>
       <!-- Dato tomado de su publicación "15 años micropigmentadora" en Instagram -->
       <p class="years"><b class="num">15</b><span>años como micropigmentadora</span></p>
+      <div class="sign-logo"><img src="assets/img/logo-fun2lash.png" alt="Fun2Lash" width="640" height="270" loading="lazy"></div>
       <!-- Añadir aquí trayectoria confirmada: años de experiencia, certificaciones, especialidades -->
     </div>
   </div>
@@ -807,6 +814,7 @@ footer{padding-block:48px 120px;background:var(--espresso);color:#D8C7B5}
       </ul>
     </div>
     <form class="form rv" id="form" novalidate>
+      <span class="logo"><img src="assets/img/logo-fun2lash.png" alt="Fun2Lash" width="640" height="270" loading="lazy"></span>
       <h3>Reserva tu cupo</h3>
       <p class="soft" style="font-size:14px;line-height:20px">Déjanos tus datos y te escribimos para confirmar disponibilidad y forma de pago.</p>
       <div class="field">
@@ -840,7 +848,7 @@ footer{padding-block:48px 120px;background:var(--espresso);color:#D8C7B5}
 
 <footer>
   <div class="wrap foot">
-    <span class="wordmark" style="font-size:18px">FUN<b>2</b>LASH</span>
+    <a class="logo" href="#top"><img src="assets/img/logo-fun2lash-claro.png" alt="Fun2Lash" width="640" height="270" loading="lazy"></a>
     <nav aria-label="Pie de página">
       <a href="https://www.instagram.com/fun2lash/" target="_blank" rel="noopener">Instagram @fun2lash</a>
       <a href="#reservar">Reservar cupo</a>
